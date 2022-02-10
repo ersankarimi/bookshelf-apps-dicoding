@@ -27,8 +27,8 @@ const listTodo = (param) => {
 	} = param
 
 	const textButton = inputBookIsComplete
-		? 'Selesai dibaca'
-		: 'Belum Selesai dibaca'
+		? 'Belum Selesai dibaca'
+		: 'Selesai dibaca'
 
 	// parent dari tiap todo list
 	const article = document.createElement('article')

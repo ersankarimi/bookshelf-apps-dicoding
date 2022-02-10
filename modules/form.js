@@ -1,11 +1,6 @@
 // imported modules
 import { inputBuku, tombolSubmitBuku } from './../index.js'
-import {
-	storageKey,
-	setDataToLocalStorage,
-	getDataFromLocalStorage,
-	addDataToLocalStorage,
-} from './storage.js'
+import { addDataToLocalStorage } from './storage.js'
 import { makeNewList } from './todoList.js'
 
 const state = {
@@ -14,14 +9,6 @@ const state = {
 	inputBookYear: '',
 	id: '',
 	inputBookIsComplete: false,
-}
-
-const disabledTombolStyle = (condition) => {
-	if (condition) {
-		tombolSubmitBuku.style.background = 'black'
-	} else {
-		tombolSubmitBuku.style.background = 'cornflowerblue'
-	}
 }
 
 const handleChange = (e) => {
@@ -73,4 +60,4 @@ const cekInputBuku = () => {
 	return result.find((el) => el === true)
 }
 
-export { state, handleChange, handleSubmit, disabledTombolStyle }
+export { state, handleChange, handleSubmit }

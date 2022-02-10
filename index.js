@@ -1,10 +1,5 @@
 // imported modules
-import {
-	state,
-	handleChange,
-	handleSubmit,
-	disabledTombolStyle,
-} from './modules/form.js'
+import { state, handleChange, handleSubmit } from './modules/form.js'
 import { handleCariBuku } from './modules/searchTodo.js'
 import {
 	getDataFromLocalStorage,
@@ -16,15 +11,10 @@ import { makeNewList } from './modules/todoList.js'
 // * Input Buku
 const formInputBuku = document.querySelector('#inputBook')
 const inputBuku = formInputBuku.querySelectorAll('input')
-// const judulBuku = document.querySelector('#inputBookTitle')
-// const penulisBuku = document.querySelector('#inputBookAuthor')
-// const tahunBuku = document.querySelector('#inputBookYear')
-// const bukuSelesai = document.querySelector('#inputBookIsComplete')
 const tombolSubmitBuku = document.querySelector('#bookSubmit')
 
 // * Cari Buku
 const cariBuku = document.querySelector('#searchBookTitle')
-// const tombolSubmitCariBuku = document.querySelector('#searchSubmit')
 
 //  Event Listener
 // * Input buku
