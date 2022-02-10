@@ -36,7 +36,7 @@ const listTodo = (param) => {
 	article.setAttribute('class', 'book_item')
 
 	article.innerHTML = `
-        <h3>${inputBookTitle}</h3>
+        <input type="text" value="${inputBookTitle}" style="font-size:2rem;font-weight:bold; border:transparent; cursor:pointer;"></input>
         <p>Penulis: ${inputBookAuthor}</p>
         <p>Tahun: ${inputBookYear}</p>
 
