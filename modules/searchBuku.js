@@ -1,5 +1,5 @@
 // imported modules
-import { makeNewList, rakBukuBelumSelesai, rakBukuSelesai } from './todoList.js'
+import { makeNewList, rakBukuBelumSelesai, rakBukuSelesai } from './bukuList.js'
 import { getDataFromLocalStorage } from './storage.js'
 
 const handleCariBuku = (e) => {

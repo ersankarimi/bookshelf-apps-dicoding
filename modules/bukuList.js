@@ -8,16 +8,16 @@ const rakBukuBelumSelesai = document.querySelector('#completeBookshelfList')
 const makeNewList = (param = getDataFromLocalStorage()) => {
 	rakBukuBelumSelesai.innerHTML = ''
 	rakBukuSelesai.innerHTML = ''
-	const dataTodos = param
+	const dataBuku = param
 
-	dataTodos.map((todo) => {
-		!todo.inputBookIsComplete
-			? rakBukuSelesai.appendChild(listTodo(todo))
-			: rakBukuBelumSelesai.appendChild(listTodo(todo))
+	dataBuku.map((buku) => {
+		!buku.inputBookIsComplete
+			? rakBukuSelesai.appendChild(listBuku(buku))
+			: rakBukuBelumSelesai.appendChild(listBuku(buku))
 	})
 }
 
-const listTodo = (param) => {
+const listBuku = (param) => {
 	const {
 		inputBookTitle,
 		inputBookAuthor,
@@ -30,15 +30,15 @@ const listTodo = (param) => {
 		? 'Belum Selesai dibaca'
 		: 'Selesai dibaca'
 
-	// parent dari tiap todo list
+	// parent dari tiap buku list
 	const article = document.createElement('article')
 	article.setAttribute('id', id)
 	article.setAttribute('class', 'book_item')
 
 	article.innerHTML = `
         <input type="text" value="${inputBookTitle}" style="font-size:2rem;font-weight:bold; border:transparent; cursor:pointer;"></input>
-        <p>Penulis: ${inputBookAuthor}</p>
-        <p>Tahun: ${inputBookYear}</p>
+        <p>Penulis : ${inputBookAuthor}</p>
+        <p>Tahun&nbsp;  : ${inputBookYear}</p>
 
         <div class="action">
             <button class="green" data-complete=${inputBookIsComplete}>${textButton}</button>
@@ -52,59 +52,59 @@ const listTodo = (param) => {
 
 	article
 		.querySelector('button[class=red]')
-		.addEventListener('click', handleHapusTodo)
+		.addEventListener('click', handlehapusBuku)
 
 	article
 		.querySelector('input[type=text]')
-		.addEventListener('change', handleUpdateTitleTodo)
+		.addEventListener('change', handleUpdateTitleBuku)
 
 	return article
 }
 
 const handleSelesaiBaca = (e) => {
 	const id = e.target.parentElement.parentElement.id
-	updateTodoComplete(id)
+	updatebukuComplete(id)
 }
 
-const handleHapusTodo = (e) => {
+const handlehapusBuku = (e) => {
 	const id = e.target.parentElement.parentElement.id
-	hapusTodo(id)
+	hapusBuku(id)
 }
 
-const handleUpdateTitleTodo = (e) => {
+const handleUpdateTitleBuku = (e) => {
 	const id = e.target.parentElement.id
-	updateTodoTitle(id, e.target.value)
+	updateBukuTitle(id, e.target.value)
 }
 
-// update title todo
-const updateTodoTitle = (id, value) => {
-	const dataTodos = getDataFromLocalStorage()
-	dataTodos.forEach((todo) => {
-		if (todo.id === id) {
-			todo.inputBookTitle = value
+// update title buku
+const updateBukuTitle = (id, value) => {
+	const dataBuku = getDataFromLocalStorage()
+	dataBuku.forEach((buku) => {
+		if (buku.id === id) {
+			buku.inputBookTitle = value
 		}
 	})
 
-	setDataToLocalStorage(dataTodos)
+	setDataToLocalStorage(dataBuku)
 	makeNewList()
 }
 
-// update data todo selesai dibaca atau tidak
-const updateTodoComplete = (id) => {
-	const dataTodos = getDataFromLocalStorage()
-	dataTodos.forEach((todo) => {
-		if (todo.id === id) {
-			todo.inputBookIsComplete = !todo.inputBookIsComplete
+// update data buku selesai dibaca atau tidak
+const updatebukuComplete = (id) => {
+	const dataBuku = getDataFromLocalStorage()
+	dataBuku.forEach((buku) => {
+		if (buku.id === id) {
+			buku.inputBookIsComplete = !buku.inputBookIsComplete
 		}
 	})
-	setDataToLocalStorage(dataTodos)
+	setDataToLocalStorage(dataBuku)
 	makeNewList()
 }
 
-// menghapus todo
-const hapusTodo = (id) => {
-	const dataTodos = getDataFromLocalStorage()
-	setDataToLocalStorage(dataTodos.filter((todo) => todo.id !== id))
+// menghapus buku
+const hapusBuku = (id) => {
+	const dataBuku = getDataFromLocalStorage()
+	setDataToLocalStorage(dataBuku.filter((buku) => buku.id !== id))
 	makeNewList()
 }
 

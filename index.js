@@ -1,11 +1,11 @@
 // imported modules
 import { state, handleChange, handleSubmit } from './modules/form.js'
-import { handleCariBuku } from './modules/searchTodo.js'
+import { handleCariBuku } from './modules/searchBuku.js'
 import {
 	getDataFromLocalStorage,
 	setDataToLocalStorage,
 } from './modules/storage.js'
-import { makeNewList } from './modules/todoList.js'
+import { makeNewList } from './modules/bukuList.js'
 
 // seleksi semua element html
 // * Input Buku

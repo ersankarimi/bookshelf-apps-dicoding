@@ -1,7 +1,7 @@
 // imported modules
 import { inputBuku, tombolSubmitBuku } from './../index.js'
 import { addDataToLocalStorage } from './storage.js'
-import { makeNewList } from './todoList.js'
+import { makeNewList } from './bukuList.js'
 
 const state = {
 	inputBookTitle: '',
