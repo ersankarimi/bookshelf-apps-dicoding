@@ -25,7 +25,8 @@ const handleChange = (e) => {
 
 const handleSubmit = (e) => {
 	e.preventDefault()
-	console.log(cekInputBuku())
+
+	// sebelum submit dilakukan pengecekan apakah user mengisi semua inputan yang tersedia atau tidak
 	if (cekInputBuku()) {
 		return alert('Semua Input Buku Harus Terisi!')
 	}
