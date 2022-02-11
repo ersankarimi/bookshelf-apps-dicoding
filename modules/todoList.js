@@ -54,12 +54,16 @@ const listTodo = (param) => {
 		.querySelector('button[class=red]')
 		.addEventListener('click', handleHapusTodo)
 
+	article
+		.querySelector('input[type=text]')
+		.addEventListener('change', handleUpdateTitleTodo)
+
 	return article
 }
 
 const handleSelesaiBaca = (e) => {
 	const id = e.target.parentElement.parentElement.id
-	updateTodo(id)
+	updateTodoComplete(id)
 }
 
 const handleHapusTodo = (e) => {
@@ -67,8 +71,26 @@ const handleHapusTodo = (e) => {
 	hapusTodo(id)
 }
 
+const handleUpdateTitleTodo = (e) => {
+	const id = e.target.parentElement.id
+	updateTodoTitle(id, e.target.value)
+}
+
+// update title todo
+const updateTodoTitle = (id, value) => {
+	const dataTodos = getDataFromLocalStorage()
+	dataTodos.forEach((todo) => {
+		if (todo.id === id) {
+			todo.inputBookTitle = value
+		}
+	})
+
+	setDataToLocalStorage(dataTodos)
+	makeNewList()
+}
+
 // update data todo selesai dibaca atau tidak
-const updateTodo = (id) => {
+const updateTodoComplete = (id) => {
 	const dataTodos = getDataFromLocalStorage()
 	dataTodos.forEach((todo) => {
 		if (todo.id === id) {
